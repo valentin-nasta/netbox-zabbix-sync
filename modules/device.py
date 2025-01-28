@@ -3,7 +3,7 @@
 """
 Device specific handeling for NetBox to Zabbix
 """
-from os import sys
+import sys
 from re import search
 from logging import getLogger
 from zabbix_utils import APIRequestError
@@ -748,7 +748,7 @@ class PhysicalDevice():
                 self.nb_journals.create(journal)
                 self.logger.debug(f"Host {self.name}: Created journal entry in NetBox")
                 return True
-            except JournalError(e) as e:
+            except JournalError as e:
                 self.logger.warning("Unable to create journal entry for "
                                     f"{self.name}: NB returned {e}")
             return False

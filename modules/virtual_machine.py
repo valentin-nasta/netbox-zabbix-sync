@@ -2,7 +2,7 @@
 # pylint: disable=duplicate-code
 """Module that hosts all functions for virtual machine processing"""
 
-from os import sys
+import sys
 from modules.device import PhysicalDevice
 from modules.hostgroups import Hostgroup
 from modules.interface import ZabbixInterface

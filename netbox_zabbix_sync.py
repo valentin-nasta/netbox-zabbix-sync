@@ -5,7 +5,8 @@
 import logging
 import argparse
 import ssl
-from os import environ, path, sys
+from os import environ, path
+import sys
 from pynetbox import api
 from pynetbox.core.query import RequestError as NBRequestError
 from requests.exceptions import ConnectionError as RequestsConnectionError
@@ -34,8 +35,8 @@ except ModuleNotFoundError:
     sys.exit(1)
 
 # Set logging
-log_format = logging.Formatter('%(asctime)s - %(name)s - '
-                               '%(levelname)s - %(message)s')
+log_format = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - '
+                               '[%(filename)s:%(funcName)s:%(lineno)d] - %(message)s')
 lgout = logging.StreamHandler()
 lgout.setFormatter(log_format)
 lgout.setLevel(logging.DEBUG)
